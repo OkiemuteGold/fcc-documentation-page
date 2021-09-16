@@ -1,0 +1,28 @@
+#sidebar {
+  min-width: 220px;
+  padding: 30px;
+  border-right: 1px solid var(--transparentDark);
+  background-color: rgba(187, 187, 187, 0.965);
+  z-index: 9;
+  transition: var(--transition);
+}
+
+#navbar {
+  position: fixed;
+  max-width: 220px;
+}
+
+#navbar .nav-link {
+  display: block;
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: var(--gray);
+  background-color: var(--customWhite);
+  border-radius: 5px;
+}
+
+#navbar .nav-link:hover {
+  background-color: var(--customBlue);
+  color: var(--white);
+}

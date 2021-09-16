@@ -1,0 +1,11 @@
+#main-doc {
+  flex: 1;
+  overflow: auto;
+  padding: 50px 35px;
+}
+
+@media screen and (min-width: 769px) {
+  #main-doc {
+    padding: 50px;
+  }
+}
