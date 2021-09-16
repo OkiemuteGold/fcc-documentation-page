@@ -1,6 +1,6 @@
 #sidebar {
   min-width: 220px;
-  padding: 30px;
+  padding: 30px 20px;
   border-right: 1px solid var(--transparentDark);
   background-color: rgba(187, 187, 187, 0.965);
   z-index: 9;
@@ -10,11 +10,17 @@
 #navbar {
   position: fixed;
   max-width: 220px;
+  overflow: hidden;
+}
+
+#navbar ul {
+  max-height: 600px;
+  overflow: auto;
 }
 
 #navbar .nav-link {
   display: block;
-  width: 200px;
+  width: 180px;
   margin-bottom: 10px;
   padding: 10px;
   color: var(--gray);
@@ -25,4 +31,63 @@
 #navbar .nav-link:hover {
   background-color: var(--customBlue);
   color: var(--white);
+}
+
+@media screen and (max-width: 769px) {
+  #sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 280px;
+    border-right: none;
+    transition: var(--transition);
+  }
+
+  .show-sidebar {
+    display: none;
+  }
+
+  #navbar {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    max-height: 280px;
+  }
+
+  #navbar ul {
+    max-height: 270px;
+  }
+
+  #navbar .nav-link {
+    width: 100%;
+    max-width: 680px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #navbar {
+    max-width: 350px;
+  }
+  #navbar .nav-link {
+    max-width: 330px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #navbar {
+    max-width: 350px;
+  }
+  #navbar .nav-link {
+    max-width: 290px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  #navbar {
+    max-width: 300px;
+  }
+  #navbar .nav-link {
+    max-width: 240px;
+  }
 }

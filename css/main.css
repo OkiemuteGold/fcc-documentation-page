@@ -5,6 +5,7 @@
 
 :root {
   --customBlue: rgb(12, 117, 158);
+  --transparentBlue: rgba(12, 117, 158, 0.6);
   --customWhite: #f4f4f4;
 
   --gray: #444;
@@ -27,6 +28,32 @@ body {
   overflow-x: hidden;
   font-family: "lato", sans-serif;
   scroll-behavior: smooth;
+}
+
+/* scrollbar */
+body::-webkit-scrollbar {
+  width: 14px;
+}
+#navbar ul::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--customWhite);
+  box-shadow: inset 0 0 5px var(--gray);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--transparentBlue);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--customBlue);
 }
 
 ::selection {
@@ -114,69 +141,5 @@ hr {
 @media screen and (max-width: 769px) {
   #wrapper {
     flex-direction: column;
-  }
-
-  #sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    min-width: 100%;
-    min-height: 280px;
-    border-right: none;
-    transition: var(--transition);
-  }
-
-  .show-sidebar {
-    display: none;
-  }
-
-  #navbar {
-    overflow: auto;
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
-    max-height: 280px;
-    overflow-x: hidden;
-  }
-
-  #navbar .nav-link {
-    width: 100%;
-    max-width: 680px;
-  }
-}
-
-@media screen and (max-width: 426px) {
-  #main-doc {
-    padding: 50px 20px;
-  }
-  #navbar {
-    max-width: 350px;
-  }
-  #navbar .nav-link {
-    max-width: 330px;
-  }
-}
-
-@media screen and (max-width: 376px) {
-  #main-doc {
-    padding: 50px 15px;
-  }
-  article {
-    margin-left: 10px;
-  }
-  #navbar {
-    max-width: 350px;
-  }
-  #navbar .nav-link {
-    max-width: 290px;
-  }
-}
-
-@media screen and (max-width: 321px) {
-  #navbar {
-    max-width: 300px;
-  }
-  #navbar .nav-link {
-    max-width: 240px;
   }
 }
