@@ -1,12 +1,37 @@
 #main-doc {
   flex: 1;
   overflow: auto;
-  padding: 50px 35px;
+}
+
+article {
+  margin-left: 20px;
+}
+
+#footer {
+  padding-top: 10px;
+  margin-bottom: 0;
+  margin-top: 100px;
+  border-top: 1px solid var(--transparentDark);
+  text-align: right;
+}
+
+#footer p {
+  margin-bottom: 0;
+  color: var(--gray);
+}
+
+#footer p a,
+#Useful_Resources p a {
+  color: var(--customBlue);
+}
+#footer p a:hover,
+#Useful_Resources p a:hover {
+  text-decoration: underline 1.5px var(--customBlue);
 }
 
 @media screen and (min-width: 769px) {
   #main-doc {
-    padding: 50px;
+    padding: 50px 50px 20px;
   }
 }
 
@@ -16,11 +41,14 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  article {
+    margin-left: 0px;
+  }
+}
+
 @media screen and (max-width: 376px) {
   #main-doc {
     padding: 50px 15px;
-  }
-  article {
-    margin-left: 10px;
   }
 }
