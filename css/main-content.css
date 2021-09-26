@@ -1,7 +1,14 @@
 #main-doc {
   flex: 1;
   overflow: auto;
+  /* background: var(--black);
+  color: var(--customWhite); */
 }
+
+/* #main-doc p,
+#main-doc li {
+  color: var(--lightGray);
+} */
 
 article {
   margin-left: 20px;
@@ -29,21 +36,21 @@ article {
   text-decoration: underline 1.5px var(--customBlue);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   #main-doc {
     padding: 50px 50px 20px;
-  }
-}
-
-@media screen and (max-width: 426px) {
-  #main-doc {
-    padding: 50px 20px;
   }
 }
 
 @media screen and (max-width: 500px) {
   article {
     margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #main-doc {
+    padding: 50px 20px;
   }
 }
 

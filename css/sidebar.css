@@ -1,8 +1,14 @@
 #sidebar {
-  min-width: 300px;
-  padding: 30px 20px;
-  border-right: 1px solid var(--transparentDark);
-  background-color: rgba(159, 171, 187, 0.75);
+  min-width: 305px;
+  padding: 30px 16px;
+  border-right: 1px solid var(--customWhite);
+  box-shadow: 0 0 2px 0 var(--customBlue);
+  background: linear-gradient(
+      to bottom right,
+      rgba(159, 171, 187, 0.875),
+      rgba(159, 171, 187, 0.875)
+    ),
+    url(../image/about.b9e4960c.gif);
   z-index: 9;
   transition: var(--transition);
 }
@@ -14,15 +20,17 @@
 }
 
 #navbar ul {
-  max-height: 600px;
+  max-height: 650px;
+  padding-right: 10px;
   overflow: auto;
 }
 
 #navbar .nav-link {
   display: block;
-  min-width: 180px;
+  min-width: 200px;
+  font-size: var(--fontSm);
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px 12px;
   color: var(--black);
   background-color: var(--customWhite);
   border-radius: 5px;
@@ -41,6 +49,7 @@
     min-width: 100%;
     min-height: 280px;
     border-right: none;
+    box-shadow: none;
     transition: var(--transition);
   }
 
@@ -50,7 +59,7 @@
 
   #navbar {
     width: 100%;
-    max-width: 725px;
+    max-width: 735px;
     margin: auto;
     max-height: 280px;
   }
@@ -61,33 +70,33 @@
 
   #navbar .nav-link {
     width: 100%;
-    max-width: 685px;
+    max-width: 695px;
   }
 }
 
 @media screen and (max-width: 426px) {
   #navbar {
-    max-width: 380px;
+    max-width: 395px;
   }
   #navbar .nav-link {
-    max-width: 345px;
+    max-width: 350px;
   }
 }
 
 @media screen and (max-width: 376px) {
   #navbar {
-    max-width: 330px;
+    max-width: 345px;
   }
   #navbar .nav-link {
-    max-width: 290px;
+    max-width: 300px;
   }
 }
 
 @media screen and (max-width: 321px) {
   #navbar {
-    max-width: 280px;
+    max-width: 290px;
   }
   #navbar .nav-link {
-    max-width: 240px;
+    max-width: 250px;
   }
 }

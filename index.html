@@ -47,13 +47,17 @@
                         <a href="#Built_In_Functions" class="nav-link">Built In Functions</a>
                     </li>
                     <li>
-                        <a href="#Rest_Parameters_And_Spread_Operator" class="nav-link">Rest Parameters And Spread Operator</a>
+                        <a href="#Rest_Parameters_And_Spread_Operator" class="nav-link">Rest Parameters And Spread
+                            Operator</a>
                     </li>
                     <li>
                         <a href="#JavaScript_Modules" class="nav-link">JavaScript Modules</a>
                     </li>
                     <li>
                         <a href="#Useful_Resources" class="nav-link">Useful Resources</a>
+                    </li>
+                    <li>
+                        <a href="#Reference" class="nav-link">Reference</a>
                     </li>
                 </ul>
             </nav>
@@ -72,11 +76,15 @@
                     </p>
                     <p>
                         Before we dive in, let's review what we'll be covering. <br>
-                        First, we learn what a function is, why use them, and how to write and run them. Next we introduce arguments and how
-                        they let us pass information to our functions. We also cover how the variables in a function are scoped and how to
-                        access them correctly. Then, we look at Immediately Invoked Function Expression, also known as the 
+                        First, we learn what a function is, why use them, and how to write and run them. Next we
+                        introduce arguments and how
+                        they let us pass information to our functions. We also cover how the variables in a function are
+                        scoped and how to
+                        access them correctly. Then, we look at Immediately Invoked Function Expression, also known as
+                        the
                         <abbr title="Immediately Invoked Function Expression">IIFE</abbr> pattern, and
-                        compare it with regular functions. Next, we introduce closures. Lastly, we'll look into JavaScript modules, and why we should use them.
+                        compare it with regular functions. Next, we introduce closures. Lastly, we'll look into
+                        JavaScript modules, and why we should use them.
                     </p>
                     <p>
                         Some of the major topics that we'll cover include:
@@ -111,13 +119,17 @@
                     </p>
 
                     <p>
-                        A function declaration consists of the function keyword, followed by the name of the function, a list of optional parameters enclosed in parentheses, separated by commas, and one or more statements that define the
+                        A function declaration consists of the function keyword, followed by the name of the function, a
+                        list of optional parameters enclosed in parentheses, separated by commas, and one or more
+                        statements that define the
                         body of the function, which are enclosed in curly brackets (i.e. { }).
                     </p>
                     <p>
-                        Note that the function definition by itself doesn't really do anything, unless it is run or invoked/called.
+                        Note that the function definition by itself doesn't really do anything, unless it is run or
+                        invoked/called.
                         <br>
-                        <b>To do this:</b> You include the function name, followed by parenthesis, and a semicolon, as shown below.
+                        <b>To do this:</b> You include the function name, followed by parenthesis, and a semicolon, as
+                        shown below.
                     </p>
                     <div class="code-example">
                         <pre>
@@ -125,35 +137,40 @@
                                 <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>(<span class="token fc_params">person1</span>) {
                                     <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello " <span class="token fc_operator">+</span> <span class="token fc_params">person1</span> <span class="token fc_operator">+</span> "!")<span class="token fc_punctuation">;</span></span>
                                 }
-                                <span class="token fc_name">greetings</span>("John")<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello John!</span>
+                                <span class="token fc_name">greetings</span>("John")<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello John!</span>
 
                                 <span class="token fc_keyword">let</span> name <span class="token fc_operator">=</span> "Jane Doe"<span class="token fc_punctuation">;</span>
-                                <span class="token fc_name">greetings</span>(name)<span class="token fc_punctuation">;</span><span class="token fc_output"> // Hello Jane Doe!</span>
+                                <span class="token fc_name">greetings</span>(name)<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello Jane Doe!</span>
                                 name <span class="token fc_operator">=</span> "Sarah D"<span class="token fc_punctuation">;</span>
-                                <span class="token fc_name">greetings</span>(name)<span class="token fc_punctuation">;</span><span class="token fc_output"> // Hello Sarah D!</span>
+                                <span class="token fc_name">greetings</span>(name)<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello Sarah D!</span>
                             </code>
                         </pre>
-
-                        <p>
-                            In the example above, the greetings function is passed a value(argument) <b>'John'</b>. When called, and logged, we get <b>'Hello John'</b>.
-                            <br>
-                            But if we assign a value <b>'Jane Doe'</b> to the variable <b>'name'</b> and use this as the argument for the <b>greetings</b> function, we get <b>'Jane Doe'</b> in the console.
-                        </p>
                     </div>
+                    <p>
+                        In the example above, the greetings function is passed a value(argument) <b>'John'</b>. When
+                        called, and logged, we get <b>'Hello John'</b>.
+                        <br>
+                        But if we assign a value <b>'Jane Doe'</b> to the variable <b>'name'</b> and use this as the
+                        argument for the <b>greetings</b> function, we get <b>'Jane Doe'</b> in the console.
+                    </p>
 
                     <h3>Difference between an Argument and a Parameter</h3>
                     <p>
-                        These words are often confused, so before we look at other examples, let's clarify the difference between them.
+                        These words are often confused, so before we look at other examples, let's clarify the
+                        difference between them.
                         <br>
                         An <strong>argument</strong> is a value that we pass to the function when we invoke it. A
-                        <strong>parameter</strong>, on the other hand, is a variable that we list as part of a function definition. In this example, we define a function called sum that takes in two parameters.
+                        <strong>parameter</strong>, on the other hand, is a variable that we list as part of a function
+                        definition. In this example, we define a function called sum that takes in two parameters.
                     </p>
 
                     <h3>Returning values</h3>
                     <p>
-                        By default, all functions return a value. Without specifying with a <b>return</b> statements, this value is <b>undefined</b>
+                        By default, all functions return a value. Without specifying with a <b>return</b> statements,
+                        this value is <b>undefined</b>
                         <br>
-                        Using return statement at the end of our function body makes it possible to collect the value in the stated variable when the function is invoked/called.
+                        Using return statement at the end of our function body makes it possible to collect the value in
+                        the stated variable when the function is invoked/called.
                     </p>
                     <div class="code-example">
                         <pre>
@@ -162,7 +179,7 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
@@ -170,7 +187,10 @@
                     <p>
                         Below is another example of using function to perform simple arithmetic operation.
                         <br>
-                        Here the function <b>sum</b> has two parameters. Within the function body, we are returning the sum of the parameters. We call the function, passing in two arguments(values) that represent the function parameters, and we set this to a variable, result. If we 'console.log' <b>result</b> gives the result, <b>5</b> as seen below.
+                        Here the function <b>sum</b> has two parameters. Within the function body, we are returning the
+                        sum of the parameters. We call the function, passing in two arguments(values) that represent the
+                        function parameters, and we set this to a variable, result. If we 'console.log' <b>result</b>
+                        gives the result, <b>5</b> as seen below.
                     </p>
                     <div class="code-example">
                         <pre>
@@ -186,9 +206,12 @@
 
                     <p>
                         <span class="note">Note:</span> <br>
-                        If your number of arguments and parameters don't match? Let's try it out. We invoke the sum function with
-                        only one argument. The output is <b><abbr title="Not A Number">NaN</abbr></b>, which stands for not a number. This is because when the sum function doesn't get
-                        any value for num2, it defaults to undefined, and JavaScript evaluates the addition of num1 and undefined as not a number.
+                        If your number of arguments and parameters don't match? Let's try it out. We invoke the sum
+                        function with
+                        only one argument. The output is <b><abbr title="Not A Number">NaN</abbr></b>, which stands for
+                        not a number. This is because when the sum function doesn't get
+                        any value for num2, it defaults to undefined, and JavaScript evaluates the addition of num1 and
+                        undefined as not a number.
                     </p>
                 </article>
             </section>
@@ -199,70 +222,155 @@
                 </header>
                 <article>
                     <p>
-                        Think of scope as a blocked account. You go to another branch to open it, but told to go to where you opened it.
+                        Think of scope as a blocked account. You go to another branch to open it, but told to go to
+                        where you opened it.
                         Frustrating right?
-                        This is why you need to understand scope. Understanding the lifetime of variables, as well as 'what/who' has access
+                        This is why you need to understand scope. Understanding the lifetime of variables, as well as
+                        'what/who' has access
                         to them can help you avoid bugs.
                     </p>
 
                     <h3>Function Scope</h3>
                     <p>
-                        In this example, we have a function greeting that simply declares a variable message and assign the value Hello to it.
-                        We invoke the greeting function first. When we try to access the message variable, we get a reference error. This is
-                        because message has function scope, and as soon as the greeting function completes execution, the message variable is no
-                        longer available. In other words, message is now out of scope.
+                        In the example below, we have a function <b>greeting</b> that simply declares a variable
+                        <b>message</b> and assign the value Hello to it.
+                        If we invoke the greeting function first, and try to access the message variable outside, we get
+                        a reference error message. This is
+                        because <b>message</b> has function scope, and as soon as the greeting function completes
+                        execution, the message variable is no
+                        longer available. In other words, message is now out of scope, and it's value does not exist
+                        outside the parent function in which it's referenced, defined or declared.
+                    </p>
+                    <p>
+                        On the other hand, if a nested function (expression) <b>sayHello</b> is defined, and its value a
+                        function <b>hi</b> which has the <b>message</b> variable assigned a value of <em>string</em>
+                        <b>Hi</b>.
+                        If we call the function <b>sayHello</b> <em>with message = "Hi"</em>, we get the result
+                        <b>Hi</b> in the console.
+                        <br>
+                        This is because <b>message</b> variable inside the nested function has been re-initialized or
+                        reassigned a value <b>Hi</b>, and it's logged result shown immediately and <b>sayHello</b> is
+                        called. i.e. <em>message has a value within the scope of the function</em>
+                    </p>
+                    <p>
+                        But if we comment out <em>message = "Hi"</em>, and call the function <b>sayHello</b> we get the
+                        result <b>Hello</b> in the console.
+                        <br>
+                        This is because message no longer has a value within it, and hence, gets it's value from the
+                        parent function. And the output is <b>Hello</b>
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">greeting</span>() {
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> sayHello <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span> <span class="token fc_name">hi</span>() {
+                                        <span class="token fc_statement_2">message <span class="token fc_operator">=</span> "Hi"<span class="token fc_punctuation">;</span></span>
+                                        <span class="token fc_statement_2">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">}</span></span>
+                                    <span class="token fc_statement">sayHello()<span class="token fc_punctuation">;</span> <span class="token fc_output">// Hi</span></span>
+                                    <span class="token fc_output fc_comment">// if message = "Hi" is commented out</span>
+                                    <span class="token fc_statement">sayHello()<span class="token fc_punctuation">;</span> <span class="token fc_output">// Hello </span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                <span class="token fc_name">greeting</span>()<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  ReferenceError: message is not defined</span>
                             </code>
                         </pre>
                     </div>
+                    <p>
+                        <span class="note">Note:</span> <br>
+                        Whenever a function cannot find a variable, it looks to its parent function for it. That is,
+                        JavaScript will keep looking at a parent and its parent for deeply nested functions until it
+                        either finds a variable, or you'll get a reference error.
+                    </p>
 
                     <h3>Block Scope</h3>
                     <p>
-                        When we say block, we are referring to the code placed between curly braces. So with block scope, we are talking about
-                        the lifetime of variables within the curly brace of an if statement, a while, or a for loop, or any set of curly braces
-                        other than a function.
+                        When we say block, we are referring to the code placed between curly braces. So with block
+                        scope, we are talking about the lifetime of variables within the curly brace of an if statement,
+                        a while, or a for loop, or any set of curly braces <em>other than a function</em>.
+                        <br>
+                        Also, note that the <em>variables declared with the var keyword or created by function declarations do not have block scope</em>.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">if</span> (message <span class="token fc_operator">===</span> "Hello") {
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Inside if block"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">// Inside if block</span></span>
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> count <span class="token fc_operator">=</span> 100<span class="token fc_punctuation">;</span></span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(count)<span class="token fc_punctuation">;</span><span class="token fc_output">// ReferenceError</span>
                             </code>
                         </pre>
                     </div>
+
+                    <p>
+                        In the above, the <b>count</b> variable was declared inside the <em>if</em> block, and as soon
+                        as the code block execution was completed, it went out of scope (of the block).
+                        <br>
+                        Console.logging message inside the <em>if</em> block gives it's value inside, but outside, it
+                        gives <b>Hello</b>
+                        <br>
+                        As you can see, we are allowed to reuse variable names within code blocks, but they override the
+                        value of message while the block is being executed.
+                    </p>
+                    <p>
+                        <span class="note">Note:</span> <br>
+                        If we change the type of count to var, then we get 100. This shows that count no longer has
+                        block scope. <br>
+                        When building larger applications, we require that values referenced within scope are accessed,
+                        and when it is re-initialized/re-assigned with a new value, we only want to get and use exact
+                        values. Therefore, it is always a good practice to use let instead of var to declare your
+                        variables. Or otherwise <b>const</b> variable, if we want the value to remain constant all
+                        through.
+                    </p>
+
+                    <h3>Var, Let, and Const Keywords</h3>
+                    <p>
+                        <strong>Var keyword</strong> is used if you want to access the same value anywhere. Using <b>var</b>, you have to be careful to know what value is what within what reference, function, or loop, especially since the variable name is the same.
+                    </p>
+                    <p>
+                        <strong>Let keyword</strong> when used gives you more control over variable values. Once a variable is assigned a value, it is scoped within the function or block it is in, and can only be re-assigned (without the <b>let</b> keyword), if i need to set a new value.
+                    </p>
+                    <p>
+                        <strong>Const keyword</strong> on the other hand, is used when you don't want to change its value <b>ever</b>, otherwise, we get an <em>error message</em> saying it has already been assigned a value.
+                    </p>
 
                     <h3>Immediately Invoked Function Expression (IIFE)</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nisi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nisi.
+                        The IIFE pattern lets us group our code and have it work in isolation, independent of any other
+                        code. To break it down:
+                        <br>
+                        <b>A function expression</b> lets us define a function and assign a true variable. <br>
+                        <b>Immediately invoked</b> means invoking the function immediately where it's defined.
+                    </p>
+                    <p>
+                        IIFE function doesn't have a name and it's wrapped completely within parentheses. Finally, it
+                        has an opening and closing parentheses appended to it, followed by a semicolon. This invokes it
+                        right away. The example below is a regular function.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">greeting</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello World")<span class="token fc_punctuation">;</span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                <span class="token fc_name">greeting</span>()<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello World</span>
+
+                                <span class="token fc_comment">// Conversion to IIFE</span>
+                                (<span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello World")<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello World</span></span>
+                                })()<span class="token fc_punctuation">;</span>
                             </code>
                         </pre>
                     </div>
 
-                    <h3>Var, Let, and Const Keyword</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, at.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, at.
+                        To make it a function expression, we just assign it to a variable or use it in some other
+                        expression. We will cover this as we look into Closures in the next section.
                     </p>
                 </article>
             </section>
@@ -273,20 +381,78 @@
                 </header>
                 <article>
                     <p>
-                        Closures allows us to hold onto variables and nested functions once the functional block they're contained in completes execution.
+                        Variables and nested functions go out of scope once the functional block they're contained in completes execution.
+                        What if we want to hold onto them, even after a function is executed!
                     </p>
-
+                    <p>
+                        We use <em><strong>Closures</strong></em>, which allow us to hold onto variables and nested functions after a function is executed. Consider the example below.
+                    </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
-                                }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> (<span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> getMessage <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
+                                        <span class="token fc_statement_2"><span class="token fc_name">return</span> message<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                })()<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(greeting<span class="token fc_punctuation">.</span>message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Undefined</span>
                             </code>
                         </pre>
                     </div>
+
+                    <p>
+                        We get <b>Undefined</b> because the function is an IIFE, and immediately after it is invoked, the variable, <b>message</b> and function, <b>getMessage</b> go out of scope and values inaccessible.
+                        <br>
+                        To prevent this, <strong>we create a closure inside</strong>. How?
+                    </p>
+                    <p>
+                        Create a <strong>return</strong> object with a <em>property</em> <strong>getMessage</strong> and the <em>value</em> is the function <strong>getMessage</strong>. Typically, the <em>property</em> and <em>value</em> names are the same, <b>but they don't have to be</b>. This is illustrated below.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> (<span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> getMessage <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
+                                        <span class="token fc_statement_2"><span class="token fc_name">return</span> message<span class="token fc_punctuation">;</span></span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> {
+                                        <span class="token fc_statement_2"><span class="token fc_keyword">getMessage</span><span class="token fc_operator">:</span> getMessage<span class="token fc_punctuation">;</span></span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                })()<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(greeting<span class="token fc_punctuation">.</span><span class="token fc_keyword">getMessage</span>())<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        Below is an example of how we can use closure to preserve a function and re-use it, after being called by another function.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">setupCounter</span>() {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> <span class="token fc_keyword">function</span> counter() {
+                                        <span class="token fc_statement_2"><span class="token fc_name">return</span> val<span class="token fc_operator">++</span><span class="token fc_punctuation">;</span></span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                }
+                                <span class="token fc_keyword">let</span> counter1 <span class="token fc_operator">=</span> <span class="token fc_name">setupCounter</span>(0)
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter1())<span class="token fc_punctuation">;</span><span class="token fc_output">//  0</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter1())<span class="token fc_punctuation">;</span><span class="token fc_output">//  1</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter1())<span class="token fc_punctuation">;</span><span class="token fc_output">//  2</span>
+
+                                <span class="token fc_keyword">let</span> counter2 <span class="token fc_operator">=</span> <span class="token fc_name">setupCounter</span>(10)
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter2())<span class="token fc_punctuation">;</span><span class="token fc_output">//  10</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter2())<span class="token fc_punctuation">;</span><span class="token fc_output">//  11</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(counter2())<span class="token fc_punctuation">;</span><span class="token fc_output">//  12</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        In the above, <strong>counter1</strong>, and <strong>counter2</strong> are variables whose values are the function <strong>setupCounter</strong>. They are each initialized with different arguments <strong>0</strong> and <strong>10</strong> respectively. Each time they are invoked through a <b>console.log</b>, their initial values are incremented by <b>1</b>.
+                    </p>
                 </article>
             </section>
 
@@ -303,11 +469,16 @@
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
-                                }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> (<span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> getMessage <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
+                                        <span class="token fc_statement_2"><span class="token fc_name">return</span> message<span class="token fc_punctuation">;</span></span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> {
+                                        <span class="token fc_statement_2"><span class="token fc_keyword">getMessage</span><span class="token fc_operator">:</span> getMessage<span class="token fc_punctuation">;</span></span></span>
+                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
+                                })()<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(greeting<span class="token fc_punctuation">.</span><span class="token fc_keyword">getMessage</span>())<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello</span>
                             </code>
                         </pre>
                     </div>
@@ -321,7 +492,8 @@
                 <article>
                     <h3>Using Call Apply, and Bind</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta dignissimos praesentium reiciendis deleniti, dolor nostrum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor nostrum?
                     </p>
                     <div class="code-example">
                         <pre>
@@ -330,7 +502,7 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
@@ -354,7 +526,7 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
@@ -367,7 +539,8 @@
                 </header>
                 <article>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
                     </p>
                     <div class="code-example">
                         <pre>
@@ -376,13 +549,14 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
                     </p>
                     <div class="code-example">
                         <pre>
@@ -391,7 +565,7 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
@@ -404,7 +578,8 @@
                 </header>
                 <article>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta dignissimos praesentium reiciendis deleniti, dolor nostrum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor nostrum?
                     </p>
                     <div class="code-example">
                         <pre>
@@ -413,7 +588,7 @@
                                     <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
                                 }
                                 <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">  //  Hello Jane!</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
                             </code>
                         </pre>
                     </div>
@@ -426,18 +601,40 @@
                 </header>
                 <article>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
                     </p>
 
                     <p>
                         Need to explore JavaScript Functions further, please refer to
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+                            title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
                             <abbr title="Mozilla Developer Network">MDN's</abbr> JavaScript Functions
                         </a>
                     </p>
                 </article>
             </section>
-            
+
+            <section class="main-section" id="Reference">
+                <header>
+                    <h2>Reference</h2>
+                </header>
+                <article>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
+                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                    </p>
+
+                    <p>
+                        Need to explore JavaScript Functions further, please refer to
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+                            title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
+                            <abbr title="Mozilla Developer Network">MDN's</abbr> JavaScript Functions
+                        </a>
+                    </p>
+                </article>
+            </section>
+
             <footer id="footer">
                 <p>
                     Copyright &copy; <span id="footer-year"></span> | <a href="https://github.com/OkiemuteGold"

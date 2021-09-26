@@ -12,8 +12,9 @@
   --green: #00ce00;
   --blue: #0080ca;
   --white: #fff;
-  --black: #222;
-  --gray: #737373;
+  --black: #1d1d1d;
+  --gray: #747474;
+  --lightGray: #bbb;
   --transparentDark: rgba(0, 0, 0, 0.25);
 
   --fontSm: 0.95rem;
@@ -112,7 +113,7 @@ code {
 
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 0 20px 20px;
+  padding: 0 20px 25px;
   white-space: pre-line;
   word-wrap: break-word;
   line-height: 24px;
@@ -121,24 +122,35 @@ code {
 .fc_keyword {
   color: var(--blue);
 }
+
 .fc_name {
   color: var(--red);
 }
+
 .fc_punctuation,
 .fc_params {
   color: var(--gray);
 }
+
 .fc_operator {
   color: var(--green);
 }
+
 .fc_statement {
-  padding-left: 15px;
+  padding-left: 16px;
 }
-.fc_output {
+.fc_statement_2 {
+  padding-left: 32px;
+}
+
+.fc_output,
+.fc_comment {
   color: var(--transparentBlue);
   font-style: italic;
   font-weight: 500;
-  padding-left: 15px;
+}
+.fc_output {
+  padding-left: 18px;
 }
 
 h1,
@@ -157,6 +169,10 @@ h1 {
 h2 {
   margin-bottom: 30px;
   font-size: 1.725rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 p {
@@ -190,7 +206,7 @@ img {
 }
 
 hr {
-  margin: 20px auto;
+  margin: 25px auto;
 }
 
 .note {
