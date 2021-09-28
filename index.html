@@ -478,16 +478,40 @@
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> (<span class="token fc_keyword">function</span>() {
-                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> "Hello"<span class="token fc_punctuation">;</span></span>
-                                    <span class="token fc_statement"><span class="token fc_keyword">let</span> getMessage <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
-                                        <span class="token fc_statement_2"><span class="token fc_name">return</span> message<span class="token fc_punctuation">;</span></span></span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">sum</span>(<span class="token fc_params">num1</span>, <span class="token fc_params">num2</span>) {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> <span class="token fc_params">num1</span> <span class="token fc_operator">*</span> <span class="token fc_params">num2</span><span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_keyword">let</span> output <span class="token fc_operator">=</span> <span class="token fc_name">sum</span>(2, 3)<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(output)<span class="token fc_punctuation">;</span><span class="token fc_output">//  6</span>
+
+                                <span class="token fc_comment">// Conversion to Arrow Function</span>
+                                <span class="token fc_keyword">let</span> sum <span class="token fc_operator">=</span> (<span class="token fc_params">num1</span>, <span class="token fc_params">num2</span>) <span class="token fc_operator">=></span> {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> <span class="token fc_params">num1</span> <span class="token fc_operator">*</span> <span class="token fc_params">num2</span><span class="token fc_punctuation">;</span></span>
+                                }                                
+                                <span class="token fc_comment">// Since there's <b>only one statement</b> inside the function body, we can delete the <b>return</b> keyword, as well as the opening and closing <b>curly braces</b>, and move everything on one line, and invoking the function with values 10 and 7 gives 17</span>
+                                <span class="token fc_keyword">let</span> <span class="token fc_name">sum</span> <span class="token fc_operator">=</span> (<span class="token fc_params">num1</span>, <span class="token fc_params">num2</span>) <span class="token fc_operator">=></span> <span class="token fc_params">num1</span> <span class="token fc_operator">+</span> <span class="token fc_params">num2</span><span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">let</span> output <span class="token fc_operator">=</span> <span class="token fc_name">sum</span>(10, 7)<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(output)<span class="token fc_punctuation">;</span><span class="token fc_output">//  70</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>The <em class="fc_name">this</em> Keyword</h3>
+                    <p>
+                        In JavaScript, <em class="fc_name">this</em> refers to the owner of the function we are executing. <br> If it is a standalone function, it refers to the global window object, otherwise, it can refer to the object, the function is a method of.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> {
+                                    <span class="token fc_statement">name<span class="token fc_operator">:</span> "John"<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">regularFunction<span class="token fc_operator">:</span> <span class="token fc_keyword">function</span>() {
+                                        <span class="token fc_statement_2">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello " <span class="token fc_operator">+</span> <span class="token fc_keyword">this</span><span class="token fc_punctuation">.</span>name)<span class="token fc_punctuation">;</span></span>
                                     <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> {
-                                        <span class="token fc_statement_2"><span class="token fc_keyword">getMessage</span><span class="token fc_operator">:</span> getMessage<span class="token fc_punctuation">;</span></span></span>
-                                    <span class="token fc_statement">}</span><span class="token fc_punctuation">;</span>
-                                })()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(greeting<span class="token fc_punctuation">.</span><span class="token fc_keyword">getMessage</span>())<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello</span>
+                                    <span class="token fc_statement">arrowFunction<span class="token fc_operator">:</span> () <span class="token fc_operator">=></span> console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi " <span class="token fc_operator">+</span> <span class="token fc_keyword">this</span><span class="token fc_punctuation">.</span>name)<span class="token fc_punctuation">;</span>
+                                }<span class="token fc_punctuation">;</span>
+                                message<span class="token fc_punctuation">.</span>regularFunction()<span class="token fc_punctuation">;</span>
+                                message<span class="token fc_punctuation">.</span>arrowFunction()<span class="token fc_punctuation">;</span>
                             </code>
                         </pre>
                     </div>
