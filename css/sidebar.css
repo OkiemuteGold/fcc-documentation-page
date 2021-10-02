@@ -3,12 +3,7 @@
   padding: 30px 16px;
   border-right: 1px solid var(--customWhite);
   box-shadow: 0 0 2px 0 var(--customBlue);
-  background: linear-gradient(
-      to bottom right,
-      rgba(159, 171, 187, 0.875),
-      rgba(159, 171, 187, 0.875)
-    ),
-    url(../image/about.b9e4960c.gif);
+  background: var(--sidebarBg);
   z-index: 9;
   transition: var(--transition);
 }

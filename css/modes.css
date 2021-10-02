@@ -1,0 +1,51 @@
+.dayTheme {
+  --bodyBg: var(--white);
+  --sidebarBg: var(--fixedSidebar);
+
+  --title: var(--black);
+  --textColor: var(--darkGray);
+
+  --shadow: var(--shadowColor1);
+  --modeIconColor: var(--black);
+  --modeIconBg: var(--lighterGray);
+}
+
+.nightTheme {
+  --bodyBg: var(--black);
+  --sidebarBg: var(--animSidebar);
+
+  --title: var(--customWhite);
+  --textColor: var(--lightGray);
+
+  --shadow: var(--shadowColor2);
+  --modeIconColor: var(--day);
+  --modeIconBg: var(--customWhite);
+}
+
+.mode {
+  padding: 10px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  background: var(--modeIconBg);
+  border-radius: 50%;
+  position: fixed;
+  right: 10px;
+  top: 20px;
+  z-index: 99999999;
+}
+
+.mode-icon {
+  font-size: var(--fontPara);
+  transition: color var(--transition);
+  text-transform: capitalize;
+}
+
+.fa-moon,
+.fa-sun {
+  color: var(--modeIconColor);
+}
+.fa-moon:hover,
+.fa-sun:hover {
+  cursor: pointer;
+}

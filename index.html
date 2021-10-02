@@ -9,7 +9,7 @@
     <meta name="application-name" content="Personal Portfolio Website" />
     <meta name="author" content="Okiemute Gold" />
     <meta name="keywords"
-        content="Navigation, Header, About, Okiemute, Gold, Frontend, Developer, Software, Project, Web, HTML, CSS, JavaScript, Function, Scope, Closures, Arrow Functions, Changing Function Context, Built In Functions, Rest Parameters And Spread Operator, JavaScript Modules, Useful Resources, Reference, Documentation page, Freecodecamp, Responsive Web Design, Certification, Course" />
+        content="Navigation, Header, About, Okiemute, Gold, Frontend, Developer, Software, Project, Web, HTML, CSS, JavaScript, Function, Scope, Closures, Arrow Functions, Changing Function Context, Built In Functions, Rest Parameters And Spread Operator, JavaScript Modules, Useful Resources, Reference, Documentation page, Freecodecamp, Responsive Web Design, Certification, Course, Night Theme, Local Storage" />
     
     <meta name="description"
         content="Documentation Page designed and built by Okiemute Gold for Freecodecamp Responsive Web Design Certification Course" />
@@ -23,7 +23,10 @@
         content="Documentation Page designed and built by Okiemute Gold for Freecodecamp Responsive Web Design Certification Course" />
 
     <title>FCC Project - Documentation Page </title>
-    
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -73,6 +76,10 @@
                 </ul>
             </nav>
         </aside>
+
+        <div class="mode">
+            <i class="fas fa-moon mode-icon" aria-label="use night mode"></i>
+        </div>
 
         <main id="main-doc">
             <section class="main-section" id="What_We_Will_Cover">
@@ -261,14 +268,14 @@
                         <br>
                         This is because <b>message</b> variable inside the nested function has been re-initialized or
                         reassigned a value <b>Hi</b>, and it's logged result shown immediately and <b>sayHello</b> is
-                        called. i.e. <em>message has a value within the scope of the function</em>
+                        called. i.e. <em>message has a value within the scope of the function</em>.
                     </p>
                     <p>
                         But if we comment out <em>message = "Hi"</em>, and call the function <b>sayHello</b> we get the
                         result <b>Hello</b> in the console.
                         <br>
                         This is because message no longer has a value within it, and hence, gets it's value from the
-                        parent function. And the output is <b>Hello</b>
+                        parent function. And the output is <b>Hello</b>.
                     </p>
                     <div class="code-example">
                         <pre>
@@ -603,7 +610,7 @@
                         </pre>
                     </div>
 
-                    <h3>Using Call Apply, and Bind</h3>
+                    <h3>Using Call, Apply, and Bind</h3>
                     <h3>Call Method</h3>
                     <p>
                         In the code block below, commenting both our call methods and just run the <b>sayHi</b> function, just prints Hi as <em><b>this</b></em> reports to the global <b>window object</b> which does not have a <b>name</b> property. What we really want here is to set the value of <em><b>this</b></em> to something other than the current execution context.
@@ -974,8 +981,7 @@
 
                     <p>
                         Need to explore JavaScript Functions further, please refer to
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
-                            title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
                             <abbr title="Mozilla Developer Network">MDN's</abbr> JavaScript Functions
                         </a>
                     </p>
@@ -1005,7 +1011,7 @@
             <footer id="footer">
                 <p>
                     Copyright &copy; <span id="footer-year"></span> | <a href="https://github.com/OkiemuteGold"
-                        target="_blank">Okiemute
+                        target="_blank" aria-label="https://github.com/OkiemuteGold">Okiemute
                         Gold</a>
                 </p>
             </footer>

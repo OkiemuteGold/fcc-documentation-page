@@ -1,0 +1,36 @@
+:root {
+  --day: #fad54e;
+  --animSidebar: linear-gradient(
+      to bottom right,
+      rgba(159, 171, 187, 0.925),
+      rgba(159, 171, 187, 0.925)
+    ),
+    url(../image/about.b9e4960c.gif);
+
+  --fixedSidebar: linear-gradient(
+      to bottom right,
+      rgba(159, 171, 187, 0.875),
+      rgba(159, 171, 187, 0.875)
+    ),
+    url(../image/CO-Vision-Slide2.jpg);
+
+  --red: #db000e;
+  --green: #00ce00;
+  --blue: #0080ca;
+  --white: #fff;
+  --black: #121212;
+  --gray: #747474;
+
+  --customBlue: rgb(12, 117, 158);
+  --transparentBlue: rgba(12, 117, 158, 0.55);
+  --customWhite: #f4f4f4;
+
+  --darkGray: #444;
+  --lightGray: #bdbdbd;
+  --lighterGray: #e5e5e5;
+  --transparentDark: rgba(0, 0, 0, 0.25);
+  --transparent: transparent;
+
+  --fontSm: 0.95rem;
+  --transition: 0.4s ease;
+}
