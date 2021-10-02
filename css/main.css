@@ -15,6 +15,7 @@ body {
 
 body {
   background: var(--bodyBg);
+  color: var(--black);
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: "lato", sans-serif;
@@ -31,7 +32,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar {
-  width: 12px;
+  width: 13px;
 }
 #navbar ul::-webkit-scrollbar {
   width: 9px;

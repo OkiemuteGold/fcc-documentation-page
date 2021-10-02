@@ -5,14 +5,14 @@
       rgba(159, 171, 187, 0.925),
       rgba(159, 171, 187, 0.925)
     ),
-    url(../image/about.b9e4960c.gif);
+    url(../image/night.gif);
 
   --fixedSidebar: linear-gradient(
       to bottom right,
       rgba(159, 171, 187, 0.875),
       rgba(159, 171, 187, 0.875)
     ),
-    url(../image/CO-Vision-Slide2.jpg);
+    url(../image/day.jpg);
 
   --red: #db000e;
   --green: #00ce00;
