@@ -5,14 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FCC Project - Documentation Page </title>
 
+    <meta name="application-name" content="Personal Portfolio Website" />
+    <meta name="author" content="Okiemute Gold" />
+    <meta name="keywords"
+        content="Navigation, Header, About, Okiemute, Gold, Frontend, Developer, Software, Project, Web, HTML, CSS, JavaScript, Function, Scope, Closures, Arrow Functions, Changing Function Context, Built In Functions, Rest Parameters And Spread Operator, JavaScript Modules, Useful Resources, Reference, Documentation page, Freecodecamp, Responsive Web Design, Certification, Course" />
+    
+    <meta name="description"
+        content="Documentation Page designed and built by Okiemute Gold for Freecodecamp Responsive Web Design Certification Course" />
+    
     <!-- Meta Description -->
+    <meta property="og:url" content="https://fcc-js-documentation.netlify.app/" />
+    <meta property="og:image" name="image" content="images/portfolio.png" />
     <meta property="og:title" content="Documentation Page coded by Okiemute Gold" />
     <meta property="og:type" content="Documentation Page" />
     <meta property="og:description"
         content="Documentation Page designed and built by Okiemute Gold for Freecodecamp Responsive Web Design Certification Course" />
 
+    <title>FCC Project - Documentation Page </title>
+    
     <!-- css -->
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -48,8 +59,7 @@
                         <a href="#Built_In_Functions" class="nav-link">Built In Functions</a>
                     </li>
                     <li>
-                        <a href="#Rest_Parameters_And_Spread_Operator" class="nav-link">Rest Parameters And Spread
-                            Operator</a>
+                        <a href="#Rest_Parameters_And_Spread_Operator" class="nav-link">Rest Parameters And Spread Operator</a>
                     </li>
                     <li>
                         <a href="#JavaScript_Modules" class="nav-link">JavaScript Modules</a>
@@ -72,7 +82,7 @@
                 <article>
                     <h3>Welcome to this documentation on JavaScript Functions.</h3>
                     <p>
-                        In this documentation, you are going to learn how functions can help you write modular, concise,
+                        In this documentation, we are going to learn how functions can help you write modular, concise,
                         reusable, and maintainable code.
                     </p>
                     <p>
@@ -498,7 +508,7 @@
 
                     <h3>The <em class="fc_name">this</em> Keyword</h3>
                     <p>
-                        In JavaScript, <em class="fc_name">this</em> refers to the owner of the function we are executing. <br> If it is a standalone function, it refers to the global window object, otherwise, it can refer to the object, the function is a method of.
+                        In JavaScript, <em class="fc_name">this</em> refers to the owner of the function we are executing. <br> If it is a standalone function, it refers to the <b>global window object</b>, otherwise, it can refer to the object, the function is a method of.
                     </p>
                     <div class="code-example">
                         <pre>
@@ -515,6 +525,18 @@
                             </code>
                         </pre>
                     </div>
+
+                    <p>
+                        Invoking both these functions one after another. In the console, the <b>regularFunction</b> prints out <b>Hello John</b>. This is because when we log our <b>message.regularFunction</b>, our this keyword refers to the <b>message object</b> that holds a function. So when we access this.name, we get John.
+                    </p>
+                    <p>
+                        However, when we call <b>message.arrowFunction</b>, it looks for the name variable in the global context, and the Window object. Since it cannot find it, only <b>Hi</b> gets printed to the console. <br>
+                        If we try to print this.name, we get an empty string. If we try to print just the value of this, we can see the Window object in the console.
+                    </p>
+                    <p>
+                        <span class="note">NOTE: </span> <br>
+                        While the value of <em><b>this</b></em> inside the <b>regularFunction</b> is the <b>message object</b>, that of the <b>arrow function</b> is the <b>Window object</b>
+                    </p>
                 </article>
             </section>
 
@@ -523,22 +545,158 @@
                     <h2>Changing Function Context</h2>
                 </header>
                 <article>
-                    <h3>Using Call Apply, and Bind</h3>
+                    <h3>Understanding Function Context And The Value of <strong><em>this</em></strong> Keyword</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
-                        dignissimos praesentium reiciendis deleniti, dolor nostrum?
+                        Every JavaScript function while executing has a reference to its current execution context to the <em><b>this</b></em> keyword. So, in the example below, the value of <em><b>this</b></em> refers to the global Window object.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">sayHi</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi")<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">this</span>)<span class="token fc_punctuation">;</span></span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
+                                <span class="token fc_name">sayHi</span>()<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hi</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Window <em>{...}</em></span></span>
                             </code>
                         </pre>
                     </div>
+
+                    <p>
+                        Here, we declare a greeting variable and assign an empty object to it. Then, we define a property, sayHi, whose value is an anonymous function.
+                        In this case, the value of <em><b>this</b></em> is no longer the <strong>global window object</strong> because the execution context in this function is different. The value of <em><b>this</b></em> now refers to the <em>object referenced by the</em> <strong>greeting variable</strong>.
+
+                        Every JavaScript function while executing has a reference to its current execution context to the
+                        <em><b>this</b></em> keyword. So, in the example below, the value of <em><b>this</b></em> refers to the global
+                        Window object.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> {}<span class="token fc_punctuation">;</span>
+                                greeting<span class="token fc_punctuation">.</span><span class="token fc_name">sayHi</span> <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi")<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">this</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                greeting<span class="token fc_punctuation">.</span><span class="token fc_name">sayHi</span>()<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hi</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// {sayHi: <em>f</em>}</span></span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>Constructive Function</h3>
+                    <p>
+                        In this example, we are using the <strong><em>new</em></strong> keyword when invoking the <b>sayHi</b> function. This is also known as the Constructive Function. <br>
+                        The value of <em><b>this</b></em> here will be an empty object. Any time you invoke a function with a <strong><em>new</em></strong> keyword, JavaScript implicitly creates an <em>empty object</em> within the function before returning it. So in my example, the variable <b>greeting</b> will hold this <i>empty object</i>.
+                    </p>
+
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">sayHi</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi")<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">this</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_keyword">let</span> greeting <span class="token fc_operator">=</span> <span class="token fc_keyword">new</span> <span class="token fc_name">sayHi</span>()<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hi</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// [<em>obj Object</em>]</span></span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>Using Call Apply, and Bind</h3>
+                    <h3>Call Method</h3>
+                    <p>
+                        In the code block below, commenting both our call methods and just run the <b>sayHi</b> function, just prints Hi as <em><b>this</b></em> reports to the global <b>window object</b> which does not have a <b>name</b> property. What we really want here is to set the value of <em><b>this</b></em> to something other than the current execution context.
+                    </p>
+                    <p>
+                        Passing the <em><b>person1</b></em> object to the <b>call method</b> as an <em>argument</em> of <b>sayHi</b> binds the value of <em><b>this</b></em> in <b>sayHi</b> to the person1 object, and this time, the string <b>Hi, John</b> gets printed to the console. In the same way, when we pass <em><b>person2</b></em>, the value <b>Hi, Mary</b> is printed to the console.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> person1 <span class="token fc_operator">=</span> {name<span class="token fc_punctuation">:</span> "John"<span class="token fc_punctuation">,</span> age<span class="token fc_punctuation">:</span> 22}<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">let</span> person2 <span class="token fc_operator">=</span> {name<span class="token fc_punctuation">:</span> "Mary"<span class="token fc_punctuation">,</span> age<span class="token fc_punctuation">:</span> 26}<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">let</span> sayHi <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>() {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello " <span class="token fc_operator">+</span> <span class="token fc_keyword">this</span><span class="token fc_punctuation">.</span>name)<span class="token fc_punctuation">;</span></span>
+                                }
+                                sayHi()<span class="token fc_punctuation">;</span><span class="token fc_output">// Hi</span>
+                                sayHi<span class="token fc_punctuation">.</span><span class="token fc_name">call</span>(person1)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello John</span>
+                                sayHi<span class="token fc_punctuation">.</span><span class="token fc_name">call</span>(person2)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Mary</span>
+
+                                <span class="token fc_comment">// We can pass additional argument, as seen below</span>
+                                <span class="token fc_keyword">let</span> person1 <span class="token fc_operator">=</span> {name<span class="token fc_punctuation">:</span> "John"<span class="token fc_punctuation">,</span> age<span class="token fc_punctuation">:</span> 22}<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">let</span> sayHi <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span>(<span class="token fc_params">message</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">message</span> <span class="token fc_operator">+</span> ", " <span class="token fc_operator">+</span> <span class="token fc_keyword">this</span><span class="token fc_punctuation">.</span>name)<span class="token fc_punctuation">;</span></span>
+                                }
+                                sayHi<span class="token fc_punctuation">.</span><span class="token fc_name">call</span>(person1, "Hi")<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hi, John</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        You can also pass additional arguments to the call method. As seen above, when we passed a <b>message</b> variable in addition to the <b>person1</b> object, <b>Call</b> let us run the function, <b>sayHi</b>, in the context of the <b>first argument <em>message</em></b>.
+                    </p>
+                    <p>
+                        <span class="note">Note: </span> <br>
+                        You can only invoked the <b>call</b> method on another function. Calling <b>person1.call</b> will result in a type error as person1 is not a function.
+                    </p>
+
+                    <h3>Apply Method</h3>
+                    <p>
+                        While the <b>apply</b> method syntax looks almost identical to that of a <b>call</b>, <b>call</b> accepts an <em>argument list</em>, while <b>apply</b> accepts a <em>single array of arguments</em>.
+                    </p>
+                    <p>
+                        From the example below, we are not really changing the function context of this value here, so we just pass undefined as the first argument. First we call the <b>introduction</b> function with the arguments <b>John</b> and <b>student</b>. Next, we call the same function once with <b>apply</b> and then with the <b>call</b> method. <br>
+                        The output of all the three functions is printed to the console.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">introduction</span>(<span class="token fc_params">name</span>, <span class="token fc_params">profession</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("My name is " <span class="token fc_operator">+</span> <span class="token fc_params">name</span> <span class="token fc_operator">+</span> " and I am a " <span class="token fc_operator">+</span> <span class="token fc_params">profession</span> <span class="token fc_operator">+</span> ".")<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">this</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                introduction("John", "student")<span class="token fc_punctuation">;</span>
+                                introduction<span class="token fc_punctuation">.</span><span class="token fc_name">apply</span>(undefined, <span class="token fc_params">["James"</span>, <span class="token fc_params">"artist"]</span>)<span class="token fc_punctuation">;</span>
+                                introduction<span class="token fc_punctuation">.</span><span class="token fc_name">call</span>(undefined, <span class="token fc_params">"James"</span>, <span class="token fc_params">"artist"</span>)<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        <span class="note">Note: </span><br>
+                        Use the apply method when the input parameter is already in the form of an array consisting of similar values; otherwise, if you're dealing with multiple arguments that are not really related to each other, use the call method.
+                    </p>
+
+                    <h3>Bind Method</h3>
+                    <p>
+                        Using the <b>call</b> and <b>apply</b> methods, we call an existing function and change the function context i.e. the value of the <em><b>this</b></em> object. But if we would like to make a <em><b>copy</b></em> of a function and then change the value of <em><b>this</b></em>, we use the <strong>bind</strong> method.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> person1 <span class="token fc_operator">=</span> {
+                                <span class="token fc_statement">name<span class="token fc_punctuation">:</span> "Mary"<span class="token fc_punctuation">,</span></span>
+                                <span class="token fc_statement">getName<span class="token fc_punctuation">:</span> <span class="token fc_keyword">function</span>() {</span>
+                                <span class="token fc_statement_2"><span class="token fc_name">return</span> <span class="token fc_keyword">this</span><span class="token fc_punctuation">.</span>name</span><span class="token fc_punctuation">;</span>
+                                <span class="token fc_statement">}</span>
+                                }<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">let</span> person2 <span class="token fc_operator">=</span> {name<span class="token fc_punctuation">:</span> "John"}<span class="token fc_punctuation">;</span>
+                                <span class="token fc_keyword">let</span> getNameCopy <span class="token fc_operator">=</span> person1<span class="token fc_punctuation">.</span>getName<span class="token fc_punctuation">.</span><span class="token fc_name">bind</span>(person2)<span class="token fc_punctuation">;</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(getNameCopy())<span class="token fc_punctuation">;</span><span class="token fc_output">//  John</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        In the code block above, when we call bind on the <b>person1.getName</b> function and pass the <b>person2</b> object as an argument, a new function is created and returned, and assigned to the <b>getNameCopy</b> variable. <br>
+                        Additionally, the value of <b>this</b> in the new function is set to the <b>person2</b> object.
+                    </p>
+                    <p>
+                        Therefore, when we print the output of the <b>getNameCopy</b> method call, it returns <b>John</b>, and this way, we are <em>no longer
+                        changing the context of an existing function</em> the way we did in <b>call</b> and <b>apply</b>, but instead <em>create a new copy</em> of function and <em>then change its context to another object</em>.
+                    </p>
+                    <p>
+                        <span class="note">Note: </span> <br>
+                        If we just print <b>getNameCopy</b>, it prints the body of the anonymous function to the console, which is a <em>copy of the <b>getName</b> function in <b>person1</b></em>.
+                    </p>
                 </article>
             </section>
 
@@ -547,19 +705,58 @@
                     <h2>Built In Functions</h2>
                 </header>
                 <article>
+                    <h3>Using eval, parseInt, and parseFloat</h3>
+                    <h3>eval()</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
-                        dignissimos
-                        praesentium reiciendis deleniti, dolor tempora nostrum?
+                        Eval, as its name suggests, accepts a string as input, a valued set, and returns a value.
+                    </p>
+                    <p>
+                        In this example, we have two variables, <b>x</b> and <b>y</b>, initialized to the values <b>1</b> and <b>2</b>, respectively. <br>
+                        Next, we append the output of the <b>eval</b> function that takes an expression and string format as input. The value <b>4</b> is output to the console.
+                    </p>
+                    <p>
+                        If we introduce a new variable <b>z = "abc"</b>, and try to evaluate the expression, <b>x + y + z</b>, the string value <b>3abc</b> is displayed in the console. Therefore, when JavaScript comes across a string value abc, it <b>concatenates that value</b> with the number <b>3</b> and returns a <em><b>string value</b></em>.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
-                                }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
+                                <span class="token fc_keyword">let</span> x <span class="token fc_operator">=</span> 1
+                                <span class="token fc_keyword">let</span> y <span class="token fc_operator">=</span> 2
+                                <span class="token fc_keyword">let</span> z <span class="token fc_operator">=</span> "abc"
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">eval</span>("x + y + 1"))<span class="token fc_punctuation">;</span><span class="token fc_output">//  4</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">eval</span>("x + y + z"))<span class="token fc_punctuation">;</span><span class="token fc_output">//  3abc</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>parseInt()</h3>
+                    <p>
+                        The function <b>parseInt</b> parses a string and returns an <em><b>integer</b></em>. <br>
+                        If the first argument cannot be converted to a number, then parseInt returns a special value of <b>NaN</b> (not a number). But if no argument is provided, JavaScript assumes it, and outputs result in <b>base 10</b>.
+                    </p>
+                    <p>
+                        In the example below, the first statement returns the value <b>F</b> and <b>base 16</b> while the second statement returns a value of <b>15</b> in decimal. Both statements display <b>15</b> to the console. The third statement returns <b>NaN</b> (not a number).
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseInt</span>(<span class="token fc_operator">"F"</span>, 16))<span class="token fc_punctuation">;</span><span class="token fc_output">//  15</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseInt</span>(<span class="token fc_operator">"15"</span>, 10))<span class="token fc_punctuation">;</span><span class="token fc_output">//  15</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseInt</span>(<span class="token fc_operator">"Hi"</span>, 10))<span class="token fc_punctuation">;</span><span class="token fc_output">//  NaN</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>parseFloat()</h3>
+                    <p>
+                        ParseFloat works just like parseInt, but it returns a <em><b>floating point number</b></em>. The first 2 statements here return <b>3.99</b> and <b>39.9</b>, respectively, and we get not a number for the third statement as <em>an empty string cannot be parsed to a floating point number</em>.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseFloat</span>(<span class="token fc_operator">3.99</span>))<span class="token fc_punctuation">;</span><span class="token fc_output">// 3.99</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseFloat</span>(<span class="token fc_operator">399</span>))<span class="token fc_punctuation">;</span><span class="token fc_output">// 399</span>
+                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_keyword">parseFloat</span>(<span class="token fc_operator">"x"</span>))<span class="token fc_punctuation">;</span><span class="token fc_output">//  NaN</span>
                             </code>
                         </pre>
                     </div>
@@ -572,36 +769,173 @@
                 </header>
                 <article>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
-                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                        Before looking into Rest Parameters And Spread Operator, it is  important to understand what Default parameters are.
+                    </p>
+                    <h3>Default Parameters</h3>
+                    <p>
+                        Default parameters allow you to give a default value to a parameter in a function. <br>
+                        In the code block below, <b>name</b> is a <b>default parameter</b> and it contains a single line of statement.
+                    </p>
+                    <p>
+                        The <b>name</b> variable when initialized with the value <b>World</b>, and the <b>sayHi</b> function invoked, the result, <b>Hello World</b> is printed to the console. <br>
+                        But if <b>sayHi</b> is invoked with an argument like <b>John</b>, we have <b>Hello John</b>.
+                    </p>
+                    <p>
+                        In the second block, we have the same function as the first, but it takes an additional parameter <b>message</b> without any default value. <br>
+                        Invoking the function, <b>sayHi</b>, with only the argument, <b>Hello</b>, outputs <b>Hello World</b> to the console, since the second parameter <b>name</b>, has default value <b>World</b>. <br>
+                        However, if the <b>sayHi</b> function is invoked again with <em>two arguments</em>, <b>Hi</b> and <b>John</b>, the output is <b>Hi John</b>.
+                    </p>                    
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">sayHi</span>(<span class="token fc_params">name</span> = "World") {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello " <span class="token fc_operator">+</span> <span class="token fc_params">name</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">sayHi</span>()<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello World</span>
+                                <span class="token fc_name">sayHi</span>("John")<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello John</span>
+
+                                </span><span class="token fc_comment">// Passing in extra arguments</span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">sayHi</span>(<span class="token fc_params">message</span>, <span class="token fc_params">name</span> = "World") {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">message</span> <span class="token fc_operator">+</span> <span class="token fc_params">name</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">sayHi</span>("Hello")<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello World</span>
+                                <span class="token fc_name">sayHi</span>("Hi", "John")<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hi John</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        If one argument is passed, when calling the <b>sayHi</b> function, it <i>represents</i> the <b>first function parameter</b> (non-default parameter), but if it is two arguments, it represents both, in the order it is passed.
+                    </p>
+                    <p>
+                        <span class="note">Note: </span><br>
+                        Please note that the <b>default parameter</b> in our function definition should <strong><em>always come after</em></strong> the <b>regular parameters</b>. <br>
+                        So in our <b>sayHi</b> function here, <b>message</b> cannot come after the <b>name</b> parameter, otherwise we get undefined, <em> and <b>message</b> never gets initialized</em>;
+                    </p>
+                    
+                    <h3>Rest Parameters</h3>
+                    <p>
+                        With rest parameters, you can define a function to store <em>multiple arguments in a single array</em>. This is especially useful when you're invoking a function with multiple arguments.
+                    </p>
+                    <p>
+                        In the example below, we define a <b>greet</b> function with the <b>names</b> parameter. The <em>dot, dot, dot (...)</em> is what makes names a rest parameter and allows greet to accept multiple arguments. <br>
+                        We then use the <b>forEach</b> method to iterate over each <b>name</b> value and print the string <b>Hi</b>, followed by the each name from the <b>array</b> of argument.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">let</span> sayHi <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span> <span class="token fc_name">greet</span>(<span class="token fc_params">...names</span>) {
+                                    <span class="token fc_statement"><span class="token fc_params">names</span><span class="token fc_punctuation">.</span><span class="token fc_name">forEach</span>(name <span class="token fc_operator">=></span> console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi " <span class="token fc_operator">+</span> name))<span class="token fc_punctuation">;</span></span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
+                                <span class="token fc_name">greet</span>("Mary", "John", "James")<span class="token fc_punctuation">;</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi Mary</span></span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi John</span></span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi James</span></span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>Rest Parameters With Additional Parameter</h3>
+                    <p>
+                        Consider the same <b>greet</b> function, but with an additional parameter <b>message</b>.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">let</span> sayHi <span class="token fc_operator">=</span> <span class="token fc_keyword">function</span> <span class="token fc_name">greet</span>(<span class="token fc_params">message, ...names</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">message</span> <span class="token fc_operator">+</span> "everyone!")<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement"><span class="token fc_params">names</span><span class="token fc_punctuation">.</span><span class="token fc_name">forEach</span>(name <span class="token fc_operator">=></span> console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hi " <span class="token fc_operator">+</span> name))<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">greet</span>("Welcome", "Mary", "John", "James")<span class="token fc_punctuation">;</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Welcome everyone!</span></span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi Mary</span></span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi John</span></span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// Hi James</span></span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        In the code block above, the <b>greet</b> function was declared with <b>two parameters</b>, <em>message</em>, and a <em>rest parameter</em>, <b>name</b>. And we call the function with <b>four arguments</b> passed. <br>
+                        The value <b>Welcome</b> gets assigned to the <b>message parameter</b>, while the <em><b>rest</b> of the arguments</em> get stored as an <em>array in the <b>names</b> parameter</em>. The output in the console is as seen above.
+                    </p>
+                    <p>
+                        If the <b>message</b> parameter is placed after <b>names</b>, we get syntax error stating that <strong><em>rest parameter must be the last formal parameter</em></strong>. <br>
+                        That's expected, as we want the rest of the arguments to be stored in a rest parameter and not a regular parameter.
+                    </p>
+                    <p>
+                        <span class="note">Note: </span> <br>
+                        Rest parameters provide a great deal of flexibility, but when mixed with regular parameters, <strong><em>should be placed last</em></strong>.
+                    </p>
+
+                    <h3>Spread Operator</h3>
+                    <p>
+                        Spread Operator allows a function to <em>take an <b>array</b></em> as an <b>argument</b> and then <b>spread out</b> its <b>elements</b> so that they can be <em>assigned to <b>individual parameters</b></em>.
+                    </p>
+                    <p>
+                        Here we have a function greet with <em>2 parameters</em>, <b>person1</b> and <b>person2</b>. We invoke the function, but <em>instead of passing in two arguments</em>, we pass a single argument, i.e. an <em><b>array</b> using the spread operator</em>. This then spread the values <b>John</b> and <b>Mary</b> (as the argument) for <b>person1</b> and <b>person2</b> respectively.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">greet</span>(<span class="token fc_params">person1, person2</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>("Hello " <span class="token fc_operator">+</span> <span class="token fc_params">person1</span> <span class="token fc_operator">+</span> " and " <span class="token fc_operator">+</span> <span class="token fc_params">person2</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">let</span> names <span class="token fc_operator">=</span> ["John", "Mary"]<span class="token fc_punctuation">;</span>
+                                <span class="token fc_name">greet</span>(...names)<span class="token fc_punctuation">;</span><span class="token fc_output">// Hello John and Mary</span>
                             </code>
                         </pre>
                     </div>
 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
-                        dignissimos praesentium reiciendis deleniti, dolor tempora nostrum?
+                        In the example below, since <b>string</b> is an array of characters, each of the characters in the variable <b>letters</b> is spread out to the parameters of the <b>display</b> function, so the spread operator can be used with any <em><b>iterable</b></em> like string, array, or list.
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">display</span>(<span class="token fc_params">char1, char2, char3, char4</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">char1, char2, char3, char4</span>)<span class="token fc_punctuation">;</span></span>
                                 }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
+                                <span class="token fc_name">let</span> letters <span class="token fc_operator">=</span> "abcd"<span class="token fc_punctuation">;</span>
+                                <span class="token fc_name">display</span>(...letters)<span class="token fc_punctuation">;</span><span class="token fc_output">// a b c d</span>
                             </code>
                         </pre>
                     </div>
+
+                    <p>
+                        If we initialize letters with <em><b>more than four letters</b></em> and then run the <b>display</b> function, <em><b>the additional letters never get collected</b></em> since we only have four parameters.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">display</span>(<span class="token fc_params">char1, char2, char3, char4</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">char1, char2, char3, char4</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">let</span> moreLetters <span class="token fc_operator">=</span> "abcdefg"<span class="token fc_punctuation">;</span>
+                                <span class="token fc_name">display</span>(...moreLetters)<span class="token fc_punctuation">;</span><span class="token fc_output">// a b c d</span>
+                            </code>
+                        </pre>
+                    </div>
+                    
+                    <p>
+                        However, if we add a rest parameter called <b>others</b> to the display function, first the arguments <b>a b c d</b> gets assigned based on the parameters in the <b>display</b> function, then the other additional letters get stored in the <b>rest parameter</b> (as an array).
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_keyword">function</span> <span class="token fc_name">display</span>(<span class="token fc_params">char1, char2, char3, char4, ...others</span>) {
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">others</span>)<span class="token fc_punctuation">;</span></span>
+                                    <span class="token fc_statement">console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(<span class="token fc_params">char1, char2, char3, char4</span>)<span class="token fc_punctuation">;</span></span>
+                                }
+                                <span class="token fc_name">let</span> letters <span class="token fc_operator">=</span> "abcdefg"<span class="token fc_punctuation">;</span>
+                                <span class="token fc_name">display</span>(...letters)<span class="token fc_punctuation">;</span><span class="token fc_output">// (3) ["e", "f", "g"]</span>
+                                <span class="token fc_statement_3"><span class="token fc_output">// a b c d</span></span>
+                            </code>
+                        </pre>
+                    </div>
+                    
+                    <p>
+                        <span class="note">Summary: </span> <br>
+                        While the rest parameter collects individual arguments and stores them in an array, the spread operator takes an array as argument and spreads it into individual parameters.
+                    </p>
                 </article>
             </section>
 

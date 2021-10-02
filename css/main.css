@@ -142,6 +142,9 @@ code {
 .fc_statement_2 {
   padding-left: 32px;
 }
+.fc_statement_3 {
+  padding-left: 60px;
+}
 
 .fc_output,
 .fc_comment {
@@ -168,11 +171,11 @@ h1 {
 
 h2 {
   margin-bottom: 30px;
-  font-size: 1.725rem;
+  font-size: 1.75rem;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.275rem;
 }
 
 p {
