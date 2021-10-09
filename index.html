@@ -951,21 +951,273 @@
                     <h2>JavaScript Modules</h2>
                 </header>
                 <article>
+                    <h3>Intro</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consectetur id labore. Dicta
-                        dignissimos praesentium reiciendis deleniti, dolor nostrum?
+                        JavaScript Modules help us break up large JavaScript codes into smaller, re-usable pieces of codes. <br>
+                        To do this, we need some keywords:
+                    </p>
+                    <ul>
+                        <li>Import and Export</li>
+                        <li>Encapsulate code</li>
+                        <li>Control access</li>
+                        <li>Reference own dependencies</li>
+                    </ul>
+                    <p>
+                        <strong>Export</strong> is the keyword used to <em>create the module</em>, while <strong>Import</strong> is used to <em>consume the module</em>.
+                        Import and Export allow us to <strong><em>Encapsulate</em></strong> our code into a single protected entity. Meaning we get to create little bundle of codes that we can package up and then only expose pieces out to help guide understanding about what this chunk of code can do and utilize that chunk of code in a meaningful way. This allows us to <strong><em>control access</em></strong> to the code as well, protecting them. <br>
+                        Also, we can <strong><em>reference our own dependencies</em></strong> internally. This means that if a piece of code needs to reference like a Lodash function or something similar to that, I don't have to import that globally into the whole application. I can just use it in my one module to keep scope to a to a minimum.
+                    </p>
+
+                    <h3>Module Considerations</h3>
+                    <ul>
+                        <li>Modules are singletons</li>
+                        <p>
+                            When you export something from a module, every other thing that imports that module gets the same instance of it.
+                        </p>
+
+                        <li>Properties are bound</li>
+                        <p>
+                            The individual items exported are not just values, but they're pointers or bindings to the properties.
+                            If something is exported and then changed, it changes everywhere.
+                        </p>
+
+                        <li>Exports are static</li>
+                        <p>
+                            Also, once you define what's being exposed through an export, you can't change it later at run time. Once it's loaded, it stays how it is. <br>
+                            What you export out of a module is static, Unlike in JavaScript, where you can change anything at run time (nothing is static).
+                        </p>
+
+                        <li>One module per file</li>
+                        <p>
+                            Modules are file-based. <br>
+                            If you're loading multiple modules into your browser, you're going to request those files one at a time over HTTP. What we normally do in the mean time is use a module bundler like webpack or something like that to consolidate them all down into one file.
+                        </p>
+                    </ul>
+
+                    <h3>Creating Modules - Export Keyword</h3>
+                    <h3>Named Exports</h3>
+                    <ul>
+                        <li>Create js file, e.g <span class="fc_keyword">template.js</span></li>
+                        <li>Write your functions, or variables inside this file</li>
+                        <li>
+                            Write <span class="fc_name">export</span> before the function or variable. E.g.
+                            <em><span class="fc_name">export</span> 
+                            function <span class="fc_keyword">functionName</span>(name1) { ... }</em>
+                        </li>
+                        <li>
+                            Use <em><span class="fc_name">import</span> 
+                            <span class="fc_keyword">{ functionName, variableName }</span> 
+                            <span class="fc_name">from</span> <span class="fc_keyword">'./template.js'</span></em> (depending on the directly) to import <i><b>functionName</b></i> from the <i><b>template.js module</b></i>
+                        </li>
+                    </ul>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="token fc_comment">// template.js file</span>
+
+                                <span class="fc_name">export</span> const <span class="token fc_keyword">errorMessage</span> = <span class="token fc_name">`</span><span class="token fc_keyword">&lt;p&gt;&lt;em&gt;</span>No message found<span class="token fc_keyword">&lt;/em&gt;&lt;/p&gt;</span><span class="token fc_name">`</span><span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> function <span class="token fc_keyword">greetings</span>(<span class="token fc_params">name1</span>) {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello " <span class="token fc_operator">+</span> <span class="token fc_params">name1</span><span class="token fc_punctuation">;</span></span>
+                                }<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>Then to import in destination.js file, use</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">{ greetings, errorMessage }</span> <span class="fc_name">from</span> './template.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        <span class="note">Note: </span> <br>
+                        Using <b><i>export</i></b> before any function or variable allow us to use the <b><i>import</i></b> keyword as seen above. <br>
+                        However, we can export all of them form the template.js file thus:
                     </p>
                     <div class="code-example">
                         <pre>
                             <code>
-                                <span class="token fc_keyword">function</span> <span class="token fc_name">greetings</span>() {
-                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello Jane!"<span class="token fc_punctuation">;</span></span>
-                                }
-                                <span class="token fc_keyword">let</span> message <span class="token fc_operator">=</span> <span class="token fc_name">greetings</span>()<span class="token fc_punctuation">;</span>
-                                console<span class="token fc_punctuation">.</span><span class="token fc_name">log</span>(message)<span class="token fc_punctuation">;</span><span class="token fc_output">//  Hello Jane!</span>
+                                const <span class="token fc_keyword">errorMessage</span> = <span class="token fc_name">`</span><span class="token fc_keyword">&lt;p&gt;&lt;em&gt;</span>No message found<span class="token fc_keyword">&lt;/em&gt;&lt;/p&gt;</span><span class="token fc_name">`</span><span class="token fc_punctuation">;</span>
+                                function <span class="token fc_keyword">greetings</span>(<span class="token fc_params">name1</span>) {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello " <span class="token fc_operator">+</span> <span class="token fc_params">name1</span><span class="token fc_punctuation">;</span></span>
+                                }<span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ greetings, errorMessage }</span><span class="token fc_punctuation">;</span>
                             </code>
                         </pre>
                     </div>
+                    <p>To import and use in destination file is still the same as above.</p>
+                    <p>We can also export { ... as ... }. That is:</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ greetings as greetName }</span><span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    
+                    <p>Then to import in destination.js file, use</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">{ greetName }</span> <span class="fc_name">from</span> './template.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>Default Exports</h3>
+                    <p>
+                        Sometimes, remembering the name can be overwhelming, especially if we are working with lots of functions. Export default allows us export, and then import in destination from the source, without necessarily remembering the name. Below are two code block examples that illustrates default exports:
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                const <span class="token fc_keyword">errorMessage</span> = <span class="token fc_name">`</span><span class="token fc_keyword">&lt;p&gt;&lt;em&gt;</span>No message found<span class="token fc_keyword">&lt;/em&gt;&lt;/p&gt;</span><span class="token fc_name">`</span><span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> <span class="fc_name">default</span> function <span class="token fc_keyword">greetings</span>(<span class="token fc_params">name1</span>) {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello " <span class="token fc_operator">+</span> <span class="token fc_params">name1</span><span class="token fc_punctuation">;</span></span>
+                                }<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                const <span class="token fc_keyword">errorMessage</span> = <span class="token fc_name">`</span><span class="token fc_keyword">&lt;p&gt;&lt;em&gt;</span>No message found<span class="token fc_keyword">&lt;/em&gt;&lt;/p&gt;</span><span class="token fc_name">`</span><span class="token fc_punctuation">;</span>
+                                function <span class="token fc_keyword">greetings</span>(<span class="token fc_params">name1</span>) {
+                                    <span class="token fc_statement"><span class="token fc_name">return</span> "Hello " <span class="token fc_operator">+</span> <span class="token fc_params">name1</span><span class="token fc_punctuation">;</span></span>
+                                }<span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ greetings <span class="fc_name">as default</span> }</span><span class="token fc_punctuation">;</span>
+
+                                <span class="token fc_comment">// to combine with the named export:</span>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ greetings <span class="fc_name">as default</span>, errorMesssage }</span><span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>Then to import in destination.js file, use</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">greetings</span> <span class="fc_name">from</span> './template.js'<span class="token fc_punctuation">;</span> <span class="token fc_comment">// note the <b>absence of curly braces</b> around the function name</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        Purpose of using <b>export default</b> is to simplify how import is done; 
+                        <i>'Don't worry about the name, just import !'</i>
+                    </p>
+
+                    <h3>Aggregating Modules</h3>
+                    <p>
+                        Assume we have another js file just like template.js, called sessions.js, which has a <b>getSessions</b> function. <br>
+                        If we want to export getSessions, and then import into our destination.js file, we will be having clusters of import statements.
+                    </p>
+                    <p>
+                        We can make this <em><b>minimal</b></em> by including <b>export greetings from './template.js'</b> inside sessions.js.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                const <span class="token fc_keyword">sessionURL</span> = <span class="token fc_name">'</span>session.json<span class="token fc_name">'</span><span class="token fc_punctuation">;</span>
+                                function <span class="token fc_keyword">getSessions</span>() {
+                                    <span class="token fc_statement">...</span>
+                                }<span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ getSessions <span class="fc_name">as default</span>, sessionURL }</span><span class="token fc_punctuation">;</span>
+                                <span class="fc_name">export</span> <span class="token fc_keyword">{ greetings }</span> <span class="fc_name">from</span> './template.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        <span class="note">Note: </span> <br>
+                        Template.js does not get added to scope for session.js in any way. Like, I can't access that anywhere, it's not an import. I'm just re-exporting it externally, and then I can aggregate everything up into just one bundle.
+                    </p>
+
+                    <h3>Using Modules - Import Keyword</h3>
+                    <p>
+                        First of all ensure browser is compatible for js module, then, in the <b><i>index.html</i></b> file add/change the script tag <b><i>type</i></b> to equal <b><i>module</i></b>. e.g <br>
+                        &lt;<span class="token fc_keyword">script</span> src=<span class="fc_name">"js/app.js"</span> type=<span class="fc_name">"module"</span>&gt;&lt;/<span class="token fc_keyword">script</span>&gt;
+                    </p>
+
+                    <h3>Default Imports</h3>
+                    <p>After changing the type to equal module, we import in destination.js file, thus:</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">getSessions</span> <span class="fc_name">from</span> './sessions.js'<span class="token fc_punctuation">;</span> <span class="token fc_comment">// in the app.js <b>getSessions</b> can be called any name</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        <span class="note">Note: </span><br>
+                        When we use export as default, from the app.js perspective, we don't care what it is called. Whatever it is called is what is used in here. However, we always want to ensure naming consistency and clarity.
+                    </p>
+
+                    <h3>Named Imports</h3>
+                    <p>
+                        Named Imports works in similar way as Default Imports, except that <strong>we must wrap</strong> the element(s) around <strong>curly braces</strong> and ensure the <strong>name(s)</strong> in destination.js <strong>are the same</strong> as in sessions.js or template.js file, <b>except</b> i use <b>as</b>, and then pass in a name-space. This is shown in the code block below.
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">{ getSessions <span class="fc_name">as</span> sessions, sessionURL }</span></span> <span class="fc_name">from</span> './template.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p>Also, if we don't want to list all functions/variables initially exported, we can import like so:</p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">*</span> <span class="fc_name">as</span> <span class="token fc_keyword">sessions</span> <span class="fc_name">from</span> './sessions.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+                    <p>
+                        This means, we have <b>taken everything in the sessions.js</b> and <b>dropped into</b> the name-space or object called <strong>sessions</strong>. <br>
+                        Then, we can now use as <i>sessions.<span class="token fc_keyword">getSessions()</span></i>
+                    </p>
+
+                    <p>
+                        However, for the <b>Aggregate Module</b> Export example above, we use <b>Named Import</b> thus:</b>
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">getSessions</span>, {<span class="token fc_keyword"> greetings, sessionURL </span>} <span class="fc_name">from</span> './sessions.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <h3>Hybrid Imports</h3>
+                    <p>
+                        This is when you're using default import and named import together. <br>
+                        In the code below, we are importing getSessions (default), and * or every other thing as sessions (named).
+                    </p>
+                    <div class="code-example">
+                        <pre>
+                            <code>
+                                <span class="fc_name">import</span> <span class="token fc_keyword">getSessions</span>, <span class="token fc_keyword">*</span> <span class="fc_name">as</span> <span class="token fc_keyword">sessions</span> <span class="fc_name">from</span> './sessions.js'<span class="token fc_punctuation">;</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        For more explanations or illustrations on JavaScript Modules. Please visit:
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export" target="_blank">https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export</a>
+                        </li>
+                        <li>
+                            <a href="https://exploringjs.com/es6/ch_modules.html" target="_blank">https://exploringjs.com/es6/ch_modules.html</a>
+                        </li>
+                        <li>
+                            <a href="https://v8.dev/features/modules#mjs" target="_blank">https://v8.dev/features/modules#mjs</a>
+                        </li>
+                    </ul>
                 </article>
             </section>
 
@@ -976,11 +1228,12 @@
                 <article>
                     <p>
                         Interested in learning more about JavaScript Functions, please visit
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank">
                             <abbr title="Mozilla Developer Network">MDN's</abbr> JavaScript Functions
                         </a> <br>
                         Or check out Beau teaches JavaScript'
-                        <a href="http://https://www.youtube.com/playlist?list=PLWKjhJtqVAbk2qRZtWSzCIN38JC_NdhW5" target="_blank" rel="noopener noreferrer">JavaScript Basics Course</a>, and <a href="https://www.youtube.com/playlist?list=PLWKjhJtqVAbljtmmeS0c-CEl2LdE-eR_F" target="_blank" rel="noopener noreferrer">ES6 - Beau teaches JavaScript</a>, all on (Freecodecamp YouTube Channel).
+                        <a href="http://https://www.youtube.com/playlist?list=PLWKjhJtqVAbk2qRZtWSzCIN38JC_NdhW5" target="_blank" rel="noopener noreferrer">JavaScript Basics Course</a>, and 
+                        <a href="https://www.youtube.com/playlist?list=PLWKjhJtqVAbljtmmeS0c-CEl2LdE-eR_F" target="_blank" rel="noopener noreferrer">ES6 - Beau teaches JavaScript</a>, all on (Freecodecamp' YouTube Channel).
                     </p>
                 </article>
             </section>

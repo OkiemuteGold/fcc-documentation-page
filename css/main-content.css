@@ -21,13 +21,15 @@ article {
 }
 
 #footer p a,
-#Useful_Resources p a,
-#Reference p a {
+.main-section p a,
+.main-section li a {
   color: var(--customBlue);
 }
+
+#Reference p a,
 #footer p a:hover,
-#Useful_Resources p a:hover,
-#Reference p a {
+.main-section p a:hover,
+.main-section li a:hover {
   text-decoration: underline 1.5px var(--customBlue);
 }
 
