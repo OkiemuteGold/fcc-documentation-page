@@ -98,3 +98,24 @@ function setDefault() {
     body.className = "dayTheme";
     // console.log("loaded");
 }
+
+/** copy code **/
+let mainDoc = document.getElementById("main-doc");
+let codeContainer = document.getElementsByClassName("code-example");
+
+mainDoc.addEventListener("click", (e) => {
+    let button = e.target;
+
+    if (codeContainer.length !== 0) {
+        if (button.classList.contains("code-copy-button")) {
+            button.setAttribute("aria-label", "copied")
+
+            button.addEventListener("mouseout", function () {
+                setTimeout(() => {
+                    this.setAttribute("aria-label", "copy code");
+                }, 200);
+            })
+        }
+    }
+})
+

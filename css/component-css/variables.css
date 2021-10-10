@@ -5,7 +5,7 @@
       rgba(159, 171, 187, 0.925),
       rgba(159, 171, 187, 0.925)
     ),
-    url(../image/night.gif);
+    url(../../image/night.gif);
 
   --fixedSidebar: linear-gradient(
       to bottom right,
